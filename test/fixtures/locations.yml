@@ -1,0 +1,22 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+swhirsch:
+  userid: swhirsch
+  latitude: 40.703
+  longitude: -73.835
+  status: A
+  points: 0
+
+jennahirsch:
+  userid: jennahirsch
+  latitude: 40.713565
+  longitude: -73.824348
+  status: A
+  points: 0
+
+blacklybal:
+  userid: blacklybal
+  latitude: 40.720852
+  longitude: -73.809414
+  status: A
+  points: 0

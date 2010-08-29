@@ -1,0 +1,59 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "locations" [0m
+
+
+Processing LocationsController#create (for 0.0.0.0 at 2009-09-13 15:28:26) [POST]
+  Parameters: {"location"=>{}}
+  [4;35;1mLocation Create (0.4ms)[0m   [0mINSERT INTO "locations" ("userid", "latitude", "longitude", "created_at", "updated_at") VALUES(NULL, NULL, NULL, '2009-09-13 19:28:26', '2009-09-13 19:28:26')[0m
+Redirected to http://test.host/locations/2053932786
+Completed in 6ms (DB: 1) | 302 Found [http://test.host/locations?]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "locations" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "locations" [0m
+  [4;36;1mLocation Load (0.1ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+
+
+Processing LocationsController#destroy (for 0.0.0.0 at 2009-09-13 15:28:26) [DELETE]
+  Parameters: {"id"=>"2053932785"}
+  [4;35;1mLocation Load (0.2ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+  [4;36;1mLocation Destroy (0.2ms)[0m   [0;1mDELETE FROM "locations" WHERE "id" = 2053932785[0m
+Redirected to http://test.host/locations
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/locations/2053932785]
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "locations" [0m
+  [4;36;1mLocation Load (0.2ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+
+
+Processing LocationsController#edit (for 0.0.0.0 at 2009-09-13 15:28:26) [GET]
+  Parameters: {"id"=>"2053932785"}
+  [4;35;1mLocation Load (0.2ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+Rendering template within layouts/locations
+Rendering locations/edit
+Completed in 31ms (View: 30, DB: 1) | 200 OK [http://test.host/locations/2053932785/edit]
+
+
+Processing LocationsController#index (for 0.0.0.0 at 2009-09-13 15:28:26) [GET]
+  [4;36;1mLocation Load (0.3ms)[0m   [0;1mSELECT * FROM "locations" [0m
+Rendering template within layouts/locations
+Rendering locations/index
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://test.host/locations]
+
+
+Processing LocationsController#new (for 0.0.0.0 at 2009-09-13 15:28:26) [GET]
+Rendering template within layouts/locations
+Rendering locations/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://test.host/locations/new]
+  [4;35;1mLocation Load (0.3ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+
+
+Processing LocationsController#show (for 0.0.0.0 at 2009-09-13 15:28:26) [GET]
+  Parameters: {"id"=>"2053932785"}
+  [4;36;1mLocation Load (0.2ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+Rendering template within layouts/locations
+Rendering locations/show
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://test.host/locations/2053932785]
+  [4;35;1mLocation Load (2.6ms)[0m   [0mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+
+
+Processing LocationsController#update (for 0.0.0.0 at 2009-09-13 15:28:26) [PUT]
+  Parameters: {"location"=>{}, "id"=>"2053932785"}
+  [4;36;1mLocation Load (1.0ms)[0m   [0;1mSELECT * FROM "locations" WHERE ("locations"."id" = 2053932785) [0m
+Redirected to http://test.host/locations/2053932785
+Completed in 7ms (DB: 4) | 302 Found [http://test.host/locations/2053932785?]
