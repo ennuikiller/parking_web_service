@@ -1,4 +1,4 @@
-#require 'ar-extensions'
+require 'ar-extensions'
 class LocationsController < ApplicationController
 before_filter :set_default_response_format
   protected
@@ -22,7 +22,7 @@ before_filter :set_default_response_format
 
     lat_range = get_range(params[:latitude])
     long_range = get_range(params[:longitude])
-    userid = params[:userid]
+    userid = params[:userid].downcase
 
     puts "latitude range = #{lat_range}"
     puts "longitude range = #{long_range}"

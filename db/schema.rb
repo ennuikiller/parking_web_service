@@ -9,7 +9,85 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091224201203) do
+ActiveRecord::Schema.define(:version => 20101124214335) do
+
+  create_table "apn_apps", :force => true do |t|
+    t.text     "apn_dev_cert"
+    t.text     "apn_prod_cert"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "apn_device_groupings", :force => true do |t|
+    t.integer "group_id"
+    t.integer "device_id"
+  end
+
+  add_index "apn_device_groupings", ["device_id"], :name => "index_apn_device_groupings_on_device_id"
+  add_index "apn_device_groupings", ["group_id", "device_id"], :name => "index_apn_device_groupings_on_group_id_and_device_id"
+  add_index "apn_device_groupings", ["group_id"], :name => "index_apn_device_groupings_on_group_id"
+
+  create_table "apn_devices", :force => true do |t|
+    t.string   "token",              :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "last_registered_at"
+    t.integer  "app_id"
+  end
+
+  add_index "apn_devices", ["token"], :name => "index_apn_devices_on_token"
+
+  create_table "apn_group_notifications", :force => true do |t|
+    t.integer  "group_id",          :null => false
+    t.string   "device_language"
+    t.string   "sound"
+    t.string   "alert"
+    t.integer  "badge"
+    t.text     "custom_properties"
+    t.datetime "sent_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "apn_group_notifications", ["group_id"], :name => "index_apn_group_notifications_on_group_id"
+
+  create_table "apn_groups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "app_id"
+  end
+
+  create_table "apn_notifications", :force => true do |t|
+    t.integer  "device_id",                        :null => false
+    t.integer  "errors_nb",         :default => 0
+    t.string   "device_language"
+    t.string   "sound"
+    t.string   "alert"
+    t.integer  "badge"
+    t.datetime "sent_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "custom_properties"
+  end
+
+  add_index "apn_notifications", ["device_id"], :name => "index_apn_notifications_on_device_id"
+
+  create_table "apn_pull_notifications", :force => true do |t|
+    t.integer  "app_id"
+    t.string   "title"
+    t.string   "content"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "devices", :force => true do |t|
+    t.string   "deviceID"
+    t.string   "deviceToken"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "locations", :force => true do |t|
     t.string   "userid"
@@ -21,5 +99,8 @@ ActiveRecord::Schema.define(:version => 20091224201203) do
     t.integer  "points"
     t.string   "udid"
   end
+
+  add_index "locations", ["latitude"], :name => "latidx"
+  add_index "locations", ["longitude"], :name => "longidx"
 
 end
